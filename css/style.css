@@ -1,0 +1,363 @@
+/* Сброс базовых отступов и настройка общих параметров */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    /* margin-right: 90px;  ← УБРАЛ: это ломало меню */
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Шапка сайта */
+header {
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+    background-color: #8ea2e4;
+    font-weight: 800;
+    color: rgb(201, 38, 38);
+    /* border: #0099ff; ← УБРАЛ: не указан тип границы (top/bottom/etc) */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(37, 57, 238);
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+nav a:hover {
+    color: #3498db;
+}
+
+/* Главный экран */
+.hero {
+    padding: 60px 0;
+    text-align: center;
+    background-color: #aac2db;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Блок «Обо мне» */
+.about {
+    padding: 40px 0;
+    text-align: center;
+    background-color: #57af9c;
+}
+
+.about p {
+    max-width: 500px;
+    margin: 0 auto;
+    color: #444;
+}
+
+/* Секция с работами */
+.works {
+    padding: 40px 0;
+    /* Оставляем только один фон (градиент), чтобы не было конфликта */
+    background: linear-gradient(0deg, rgb(220, 255, 189) 5%, rgb(212, 195, 199) 50%, rgb(204, 134, 209) 95%);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.work-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.work-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    background-color: #fafafa;
+}
+
+
+.work-preview {
+    height: 200px;
+    overflow: hidden;
+}
+
+.work-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.work-info {
+    padding: 15px;
+}
+
+.work-title {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.work-type {
+    color: #777;
+    font-size: 14px;
+}
+
+/* Контакты */
+.contacts {
+    padding: 40px 0;
+    text-align: center;
+    /* Только один фон */
+    background: radial-gradient(circle, rgb(255, 175, 123) 5%, rgb(215, 109, 119) 50%, rgb(58, 28, 113) 95%);
+}
+
+.contact-links a {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.contact-links a:hover {
+    background-color: #2980b9;
+}
+
+/* Подвал */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #888;
+    border-top: 1px solid #eee;
+    background-color: rgb(45, 45, 104);
+}
+
+/* Адаптив для мобильных устройств */
+@media (max-width: 600px) {
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+    nav ul {
+        gap: 12px;
+        font-size: 14px;
+    }
+}
+
+/* Тёмная тема: переопределяем базовые цвета */
+body.dark-theme {
+    background-color: #1a1a2e;
+    color: #e94560;
+}
+
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme .section-title {
+    color: #fff;
+}
+
+body.dark-theme a {
+    color: #0f3460;
+}
+
+body.dark-theme a:hover {
+    color: #ffd93d;
+}
+
+body.dark-theme .about,
+body.dark-theme .contacts {
+    /* Меняем фоновые градиенты на более тёмные варианты */
+    background: #16213e;
+}
+
+body.dark-theme .works {
+    background: #0f3460;
+}
+
+body.dark-theme .work-card {
+    background: #16213e;
+    border-color: #0f3460;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+body.dark-theme .contact-links a {
+    background-color: #e94560;
+}
+
+body.dark-theme .contact-links a:hover {
+    background-color: #c0392b;
+}
+
+/* Кнопка темы */
+#theme-toggle {
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    background-color: #1b2933;
+    color: rgb(255, 253, 253);
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+#theme-toggle:hover {
+    background-color: #ddb7b7;
+}
+
+/* Цвет кнопки в светлой теме */
+body:not(.dark-theme) #theme-toggle {
+    background-color: #244b64;       /* синий */
+    color: white;
+}
+
+/* Цвет кнопки в тёмной теме */
+body.dark-theme #theme-toggle {
+    background-color: #f8ec3d;       /* тёплый красно‑оранжевый, хорошо видно на тёмном */
+    color: rgb(0, 0, 0);
+}
+
+/* Ховер (наведение) для кнопки — тоже подстраиваем под тему */
+body:not(.dark-theme) #theme-toggle:hover {
+    background-color: #1a2227;
+}
+
+body.dark-theme #theme-toggle:hover {
+    background-color: #f2fc6e;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Анимация для Обо мне */
+.about {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Анимация для Работ */
+.works {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%; /* чуть отступы по краям, чтобы не прилипало к экрану */
+        margin: 0 auto;
+    }
+
+    header {
+        flex-direction: column; /* шапка: сначала кнопка, потом лого и меню друг под другом */
+        align-items: center;
+        padding: 15px;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 12px; /* расстояние между пунктами меню */
+        text-align: center;
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    gap: 12px;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  nav a {
+    padding: 8px 12px;
+  }
+}

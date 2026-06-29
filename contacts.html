@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты — Mark Messing</title>
+    <!-- Важно: путь к стилю должен быть простым, если style.css лежит рядом -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <header>
+        <button id="theme-toggle" aria-label="Переключить тему">🌙 Тёмная тема</button>
+        <div class="container header-content">
+            <a href="index.html" class="logo">Mark Messing</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">Обо мне</a></li>
+                    <li><a href="works.html">Работы</a></li>
+                    <!-- Текущая страница выделена цветом через стиль в CSS -->
+                    <li><a href="contacts.html" style="color: #3498db;">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="contacts">
+            <div class="container">
+                <h2 class="section-title">Связаться со мной</h2>
+                <p style="margin-bottom: 20px;">Готов к сотрудничеству и стажировкам. Пишите — отвечу в течение 1–2 дней.</p>
+
+                <div class="contact-links">
+                    <!-- Реальный email — обязательно поставь свой, иначе письма не придут -->
+                    <a href="mailto:mark.messing@example.com">Email</a>
+                    
+                    <!-- Замени # на реальную ссылку, когда она появится -->
+                    <a href="https://t.me/твой_ник" target="_blank" rel="noopener noreferrer">Telegram</a>
+                    <a href="https://www.behance.net/твой_профиль" target="_blank" rel="noopener noreferrer">Behance</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Mark Messing. Все права защищены.</p>
+        </div>
+    </footer>
+
+<script>
+  const toggleBtn = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  // Проверяем, есть ли сохранённая тема в localStorage
+  if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-theme');
+    toggleBtn.textContent = '☀️ Светлая тема';
+  } else {
+    toggleBtn.textContent = '🌙 Тёмная тема';
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-theme');
+
+    if (body.classList.contains('dark-theme')) {
+      localStorage.setItem('theme', 'dark');
+      toggleBtn.textContent = '☀️ Светлая тема';
+    } else {
+      localStorage.setItem('theme', 'light');
+      toggleBtn.textContent = '🌙 Тёмная тема';
+    }
+  });
+</script>
+</body>
+</html>

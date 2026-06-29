@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обо мне — Mark Messing</title>
+    <!-- Путь к CSS: если style.css лежит в той же папке, что и about.html -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <header>
+        <button id="theme-toggle" aria-label="Переключить тему">🌙 Тёмная тема</button>
+        <div class="container header-content">
+            <a href="index.html" class="logo">Mark Messing</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html" style="color:#3498db;">Обо мне</a></li>
+                    <li><a href="works.html">Работы</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Класс hidden нужен, чтобы блок изначально был скрыт -->
+        <section class="about">
+            <div class="container">
+                <h2 class="section-title">Обо мне</h2>
+                <p>Меня зовут Марк Мессинг. Я начинающий веб‑дизайнер: делаю лендинги, адаптирую макеты, подбираю цвета и шрифты. Люблю минимализм и понятную структуру.</p>
+                <br>
+                <p>В портфолио — учебные и реальные небольшие проекты. Готов к стажировкам и тестовым заданиям. Увлекаюсь типографикой и чистым кодом. Стараюсь, чтобы дизайн был не только красивым, но и удобным для пользователя.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Mark Messing. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // 1. Логика тёмной/светлой темы
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-theme');
+            toggleBtn.textContent = '☀️ Светлая тема';
+        } else {
+            toggleBtn.textContent = '🌙 Тёмная тема';
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+
+            if (body.classList.contains('dark-theme')) {
+                localStorage.setItem('theme', 'dark');
+                toggleBtn.textContent = '☀️ Светлая тема';
+            } else {
+                localStorage.setItem('theme', 'light');
+                toggleBtn.textContent = '🌙 Тёмная тема';
+            }
+        });
+
+        // 2. Анимация появления блока
+        document.addEventListener('DOMContentLoaded', () => {
+            const section = document.querySelector('.about');
+            if (section) {
+                // Небольшая задержка, чтобы браузер успел отрисовать начальное состояние
+                setTimeout(() => {
+                    section.classList.remove('hidden');
+                }, 100);
+            }
+        });
+    </script>
+</body>
+</html>

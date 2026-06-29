@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио — Mark Messing</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <header>
+        <button id="theme-toggle" aria-label="Переключить тему">🌙 Тёмная тема</button>
+        <div class="container header-content">
+            <a href="index.html" class="logo">Mark Messing</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" style="color:#3498db;">Главная</a></li>
+                    <li><a href="about.html">Обо мне</a></li>
+                    <li><a href="works.html">Работы</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Привет, я Марк Мессинг</h1>
+                <p>Начинающий веб‑дизайнер. Создаю удобные и красивые сайты, люблю работать с макетами и типографикой.</p>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">Обо мне</h2>
+                <p>Учусь и практикуюсь: делаю лендинги, адаптирую макеты, подбираю цвета и шрифты. Люблю минимализм и понятную структуру. В портфолио — учебные и реальные небольшие проекты. Готов к стажировкам и тестовым заданиям.</p>
+            </div>
+        </section>
+
+        <section id="works" class="works">
+            <div class="container">
+                <h2 class="section-title">Мои работы</h2>
+                <div class="works-grid">
+                    <article class="work-card">
+                        <div class="work-preview">
+                            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/22b3de94881493.5e8a0656e091d.png" alt="Лендинг для кофейни">
+                        </div>
+                        <div class="work-info">
+                            <h3 class="work-title">Лендинг для кофейни</h3>
+                            <p class="work-type">Веб‑дизайн, Figma</p>
+                        </div>
+                    </article>
+                    <!-- Если картинок нет, оставь заглушку, чтобы верстка не ломалась -->
+                    <article class="work-card">
+                        <div class="work-preview">
+                            <img src="/img/5426236.jpg" alt="">
+                        </div>
+                        <div class="work-info">
+                            <h3 class="work-title">Адаптивная страница</h3>
+                            <p class="work-type">UI/UX, прототипирование</p>
+                        </div>
+                    </article>
+                    <article class="work-card">
+                        <div class="work-preview">
+                            <img src="/img/4648.jpg" alt="">
+                        </div>
+                        <div class="work-info">
+                            <h3 class="work-title">Личный кабинет</h3>
+                            <p class="work-type">Дизайн‑система, компоненты</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacts" class="contacts">
+            <div class="container">
+                <h2 class="section-title">Связаться со мной</h2>
+                <p style="margin-bottom:20px;">Готов к сотрудничеству и стажировкам.</p>
+                <div class="contact-links">
+                    <a href="mailto:mark@example.com">Email</a>
+                    <a href="#">Telegram</a>
+                    <a href="#">Behance</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Mark Messing. Все права защищены.</p>
+        </div>
+    </footer>
+
+<script>
+  const toggleBtn = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  // Проверяем, есть ли сохранённая тема в localStorage
+  if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-theme');
+    toggleBtn.textContent = '☀️ Светлая тема';
+  } else {
+    toggleBtn.textContent = '🌙 Тёмная тема';
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-theme');
+
+    if (body.classList.contains('dark-theme')) {
+      localStorage.setItem('theme', 'dark');
+      toggleBtn.textContent = '☀️ Светлая тема';
+    } else {
+      localStorage.setItem('theme', 'light');
+      toggleBtn.textContent = '🌙 Тёмная тема';
+    }
+  });
+</script>
+</body>
+</html>
